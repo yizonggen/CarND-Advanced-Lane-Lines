@@ -232,6 +232,9 @@ for image_path in glob.glob('test_images/test*.jpg'):
     pipeline = Pipeline(calibrated)
     overlay = pipeline.run(calibrated)
 ```
+Here is an example from the results on a test image:
+
+![alt-text-1](output_images/test1.jpg)
 
 (7)  Run the pipeline for each of the frames in the video:
 
