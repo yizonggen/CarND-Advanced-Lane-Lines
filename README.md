@@ -1,11 +1,7 @@
-## Advanced Lane Finding
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-![Lanes Image](./examples/example_output.jpg)
+# Advanced Lane Finding
 
-In this project, our goal is to write a software pipeline to identify the lane boundaries in a video, but the main output or product we want you to create is a detailed writeup of the project.  Check out the [writeup template](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup.  
 
-The Project
----
+## The Project
 
 The goals / steps of this project are the following:
 
@@ -19,29 +15,6 @@ The goals / steps of this project are the following:
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 
-<!-- In order to detect the lane lines in a video stream we must accomplish the folowing:
-
-- **Camera Calibration** - Calibrate the camera to correct for image distortions. For this we use a set of chessboard images, knowing the distance and angles between common features like corners, we can calculate the tranformation functions and apply them to the video frames.
-
-- **Color Transform** - We use a set of image manipulation techniques to accentuate certain features like lane lines. We use color space transformations, like from RGB to HLS, channel separation, like separating the S channel from the HLS image and image gradient to allow us to identify the desired lines.
-
-- **Perspective Transform** - We apply a "bird’s-eye view transform" that let's us view a lane from above and thus identify the lane lines, mesure its curvature and respective radius.
-
-- **Lane Pixel Detection** - We then analyse the transformed image and try to detect the lane pixels. We use a series of windows and identify the lane lines by finding the peeks in a histogram of each window's.
-
-- **Image augmentation** - We add a series of overlays to the image to: identify the lane lines, show the "bird's eye view" perspective, show the location of the rectangle windows where the lane pixels are and finaly metrics on the radius of curvature and distance to the center of the road.
-
-- **Pipeline** - We finally put it all together in a pipeline so we can apply it to the video stream. -->
-
-<!-- The images for camera calibration are stored in the folder called `camera_cal`.  The images in `test_images` are for testing your pipeline on single frames.  If you want to extract more test images from the videos, you can simply use an image writing method like `cv2.imwrite()`, i.e., you can read the video in frame by frame as usual, and for frames you want to save for later you can write to an image file.  
-
-To help the reviewer examine your work, please save examples of the output from each stage of your pipeline in the folder called `output_images`, and include a description in your writeup for the project of what each image shows.    The video called `project_video.mp4` is the video your pipeline should work well on.  
-
-The `challenge_video.mp4` video is an extra (and optional) challenge for you if you want to test your pipeline under somewhat trickier conditions.  The `harder_challenge.mp4` video is another optional challenge and is brutal!
-
-If you're feeling ambitious (again, totally optional though), don't stop there!  We encourage you to go out and take video of your own, calibrate your camera and show us how you would implement this project from scratch! -->
-
-
 ## Source Codes and Files
 
 - `camera_cal/` Directory with calibration images
@@ -51,21 +24,6 @@ If you're feeling ambitious (again, totally optional though), don't stop there! 
 - `AdvancedLaneFinding.ipnyb` Jupyter notebook with all the project code and example images
 - `README.md` Projecte writeup (you're reading it)
 
-<!-- ## Project Overview
-
-In order to detect the lane lines in a video stream we must accomplish the folowing:
-
-- **Camera Calibration** - Calibrate the camera to correct for image distortions. For this we use a set of chessboard images, knowing the distance and angles between common features like corners, we can calculate the tranformation functions and apply them to the video frames.
-
-- **Color Transform** - We use a set of image manipulation techniques to accentuate certain features like lane lines. We use color space transformations, like from RGB to HLS, channel separation, like separating the S channel from the HLS image and image gradient to allow us to identify the desired lines.
-
-- **Perspective Transform** - We apply a "bird’s-eye view transform" that let's us view a lane from above and thus identify the lane lines, mesure its curvature and respective radius.
-
-- **Lane Pixel Detection** - We then analyse the transformed image and try to detect the lane pixels. We use a series of windows and identify the lane lines by finding the peeks in a histogram of each window's.
-
-- **Image augmentation** - We add a series of overlays to the image to: identify the lane lines, show the "bird's eye view" perspective, show the location of the rectangle windows where the lane pixels are and finaly metrics on the radius of curvature and distance to the center of the road.
-
-- **Pipeline** - We finally put it all together in a pipeline so we can apply it to the video stream. -->
 
 ## Camera Calibration
 
@@ -108,7 +66,7 @@ Here's one example:
 
 ![alt-text-1](output_images/chessboard-original-undistorted.png "Original | Undistorted")
 
-> For full implementation details please see the [jupyter notebook](Advanced-Lane-Finding.ipynb)
+> For full implementation details please refer to the [jupyter notebook](AdvancedLaneFinding.ipynb)
 
 ## Color Transform
 
@@ -154,7 +112,7 @@ Apply all these transformations to identify the edges on the lane lines, here's 
 
 ![alt-text-1](output_images/color-transform-example.png)
 
-> For full implementation details please see the [jupyter notebook](Advanced-Lane-Finding.ipynb)
+> For full implementation details please refer to the [jupyter notebook](AdvancedLaneFinding.ipynb)
 
 ## Perspective Transform
 
@@ -194,7 +152,7 @@ Here's an example of the transformation:
 
 ![alt-text-1](output_images/perspective-transform-example.png)
 
-> For full implementation details please see the [jupyter notebook](Advanced-Lane-Finding.ipynb)
+> For full implementation details please refer to the [jupyter notebook](AdvancedLaneFinding.ipynb)
 
 
 ## Lane Pixel Detection
@@ -207,30 +165,7 @@ Two classes have been created:
 
 (2) class `LaneLine`: This class represents each of the lane lines in the image, in this case the `left` and `right` lines. It calculates the equation of the curve of the line and returns `radius_of_curvature` and `camera_distance` from the center line. This class also includes all the assumptions like the width of the lanes, `3.7` meters, and the length of the lane in the image, `30` meters
 
-<!-- Here's an example of the lane lines detected:
-
-![alt-text-1](output_images/lane-detection-example-o.png) ![alt-text-2](output_images/lane-detection-example.png) -->
-
-> please do see the [jupyter notebook](Advanced-Lane-Finding.ipynb) for more details.
-
-
-<!-- ## Image augmentation
-
-In order to augment the video, and its respective frames, we've created a series of overlays to add additional information to the stream.
-
-**Top left corner** - Adds a representation of the windows in the transformed image and identifies the lanes and its curvature
-
-**Top center** - A "bird's eye" view with the lane identified
-
-**Top right corner** - Metrics on the radius of curvature and distance to the center line
-
-**Lower two thirds** - The actual image with the lane boundaries identified and colored for effect.
-
-Here's an example augmented image:
-
-![alt-text-1](output_images/augmented-image-example.png)
-
-> For full implementation details please see the [jupyter notebook](Advanced-Lane-Finding.ipynb) -->
+> please do see the [jupyter notebook](AdvancedLaneFinding.ipynb) for more details.
 
 
 ## Pipeline
@@ -284,11 +219,11 @@ self.left_lane = LaneLine(nonzero[1][left_lane_inds], nonzero[0][left_lane_inds]
 self.right_lane = LaneLine(nonzero[1][right_lane_inds], nonzero[0][right_lane_inds], self.height, self.width)
 ```
 
-> For full implementation details please see the [jupyter notebook](Advanced-Lane-Finding.ipynb)
+> For full implementation details please refer to the [jupyter notebook](AdvancedLaneFinding.ipynb)
 
 ---
 
-We then run the pipeline for each of the test images:
+(6) Run the pipeline for each of the test images:
 
 ```python
 for image_path in glob.glob('test_images/test*.jpg'):
@@ -298,43 +233,30 @@ for image_path in glob.glob('test_images/test*.jpg'):
     overlay = pipeline.run(calibrated)
 ```
 
-And finally for each of the frames in the video:
+(7)  Run the pipeline for each of the frames in the video:
 
 ```python
 from moviepy.editor import VideoFileClip
 
-def build_augmented_video(video_path_prefix):
-    output_video_name = 'videos/{}_augmented.mp4'.format(video_path_prefix)
-    input_video = VideoFileClip("videos/{}.mp4".format(video_path_prefix))
+def lane_finding_on_video(video_path_prefix):
+    output_video_name = 'output_videos/{}_with_detected_lane.mp4'.format(video_path_prefix)
+    input_video = VideoFileClip("{}.mp4".format(video_path_prefix))
 
-    calibrated = calibrated_camera(input_video.get_frame(0))
+    calibrated = calibrated_camera(input_video.get_frame(0)) 
     pipeline = Pipeline(calibrated)
 
     output_video = input_video.fl_image(pipeline.run)
+
+    output_video.write_videofile(output_video_name, audio=False)
 ```
 
-We use [`moviepy`](http://zulko.github.io/moviepy/) lib to read each frame of the video and subsquently save each of the frames with detected lanes into a new video.
-
-You can find a GIF of the project video "augmented" in the top of this file.
 
 ## Discussion
 
-Tested on the [project video](output_videos/project_video_with_detected_lane.mp4) the pipeline works well for a "simple" video stream,  This is becase there's litte changes in elevation, lighting or any steep bends.
+Tested on the [project video](output_videos/project_video_with_detected_lane.mp4), the pipeline works well for a simple video stream.  This is becase there's litte changes in elevation, lighting or any steep bends.
 
----
+For challenging video: The pipeline starts to struggle, this is because this video adds features like a concrete seperator that projects a shadow into the lane and parallel to the lane lines. Close to the camera the model works relatively well but near the escape point the lane detection starting to fail.
 
-If we analyse the slightly harder video:
-
-<!-- ![alt text](videos/challenge_video_augmented.gif "Result") -->
-
-We can clearly see that the pipeline start to struggle, this is because this video adds features like a concrete seperator that projects a shadow into the lane and paralel to the lane lines. Close to the camera the model works relatively well but near the escape point we can see the lane detection starting to fail.
-
----
-
-If we then look at the more challenging video:
-
-<!-- ![alt text](videos/harder_challenge_video_augmented.gif "Result") -->
-
-It's obvious that the model does not perform well. The lane boundary is "all over the place" and could not keep the car inside the lane.
+For harder video: It's obvious that the model does not perform well. The lane boundary is "all over the place" and could not keep the car inside the lane.
 This is most likely due to the nature of the road, single line for each traffic direction, steeper bends and a higher proximity to the side of the road.
 
