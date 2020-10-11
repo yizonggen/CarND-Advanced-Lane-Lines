@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 - `output_images/` Directory with test images with detected lanes
 - `output_videos/` Directory with output videos
 - `AdvancedLaneFinding.ipnyb` Jupyter notebook with all the project code and example images
-- `README.md` Projecte writeup (you're reading it)
+- `README.md` Projecte writeup
 
 
 ## Camera Calibration
